@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debt Counsellor Transfer — Clear Debt</title>
+  <meta name="description" content="Transfer a consumer from a previous debt counsellor to Clear Debt." />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/forms.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand"><span class="brand-mark">CD</span><span class="brand-text">Clear Debt</span></a>
+      <nav class="site-nav">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/client-contract.html">Contract</a>
+        <a href="/pages/transfer-form.html">Transfer</a>
+        <a href="/pages/power-of-attorney.html">POA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container form-page">
+    <div class="form-header">
+      <div class="breadcrumb"><a href="/index.html">Home</a> / Debt Counsellor Transfer</div>
+      <h1>Debt Counsellor Transfer Form</h1>
+      <p>Request the transfer of a consumer under debt review from their current counsellor to Clear Debt.</p>
+    </div>
+
+    <div class="form-layout">
+      <form id="form" novalidate>
+        <!-- Section A -->
+        <section class="card">
+          <div class="card-header"><h2><span class="step-badge">A</span>Consumer Details</h2></div>
+          <div class="card-body">
+            <div class="field-grid">
+              <div class="field span-2">
+                <label>Full Name<span class="req">*</span></label>
+                <input type="text" name="consumerFullName" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>ID Number<span class="req">*</span></label>
+                <input type="text" name="consumerIdNumber" data-rules="required,saId" inputmode="numeric" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>Contact Number<span class="req">*</span></label>
+                <input type="tel" name="consumerPhone" data-rules="required,tel" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field span-2">
+                <label>Email<span class="req">*</span></label>
+                <input type="email" name="consumerEmail" data-rules="required,email" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field span-2">
+                <label>Residential Address<span class="req">*</span></label>
+                <input type="text" name="consumerAddress" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section B -->
+        <section class="card">
+          <div class="card-header"><h2><span class="step-badge">B</span>Current Debt Counsellor Details</h2></div>
+          <div class="card-body">
+            <div class="field-grid">
+              <div class="field">
+                <label>Debt Counsellor Name<span class="req">*</span></label>
+                <input type="text" name="currentCounsellorName" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>NCR Registration Number<span class="req">*</span></label>
+                <input type="text" name="currentCounsellorNcr" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field span-2">
+                <label>Company Name<span class="req">*</span></label>
+                <input type="text" name="currentCounsellorCompany" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>Contact Number<span class="req">*</span></label>
+                <input type="tel" name="currentCounsellorPhone" data-rules="required,tel" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>Email<span class="req">*</span></label>
+                <input type="email" name="currentCounsellorEmail" data-rules="required,email" />
+                <div class="error-msg"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section C -->
+        <section class="card">
+          <div class="card-header"><h2><span class="step-badge">C</span>New Debt Counsellor Details</h2></div>
+          <div class="card-body">
+            <div class="field-grid">
+              <div class="field"><label>Debt Counsellor Name</label><input type="text" name="newCounsellorName" value="Tasmin Ramkissoon" /></div>
+              <div class="field"><label>NCR Registration Number</label><input type="text" name="newCounsellorNcr" value="NCRDC4086" /></div>
+              <div class="field span-2"><label>Company Name</label><input type="text" name="newCounsellorCompany" value="CLEAR DEBT" /></div>
+              <div class="field"><label>Contact Number</label><input type="tel" name="newCounsellorPhone" value="079 393 2311" /></div>
+              <div class="field"><label>Email</label><input type="email" name="newCounsellorEmail" value="info@clear-debt.co.za" /></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section D -->
+        <section class="card">
+          <div class="card-header"><h2><span class="step-badge">D</span>Confirmation of Transfer</h2></div>
+          <div class="card-body">
+            <ol style="padding-left: 20px; color: var(--color-text-muted);">
+              <li>I, the undersigned consumer, confirm my request to transfer from the above-mentioned current debt counsellor to the new debt counsellor.</li>
+              <li>I understand that the new debt counsellor will take over all responsibilities relating to my debt review process as regulated by the National Credit Act.</li>
+              <li>I authorize the release of all documents, information, and court applications related to my debt review to the new debt counsellor.</li>
+            </ol>
+            <label class="check" style="margin-top: 12px;">
+              <input type="checkbox" name="confirmTransfer" data-rules="required" />
+              <div>
+                <div class="check-title">I confirm and authorize the transfer<span class="req">*</span></div>
+                <div class="check-desc">Required to submit this transfer request.</div>
+              </div>
+            </label>
+            <div class="error-msg"></div>
+          </div>
+        </section>
+
+        <!-- Section E: Signatures -->
+        <section class="card">
+          <div class="card-header"><h2><span class="step-badge">E</span>Signatures</h2></div>
+          <div class="card-body">
+            <div class="field-grid">
+              <div class="field">
+                <label>Consumer Signature Date<span class="req">*</span></label>
+                <input type="date" name="consumerSignDate" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>New Debt Counsellor Signature Date<span class="req">*</span></label>
+                <input type="date" name="counsellorSignDate" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field span-2">
+                <label>Consumer Signature<span class="req">*</span></label>
+                <div class="signature-block" data-name="consumerSignature" data-required="true">
+                  <div class="signature-title"><span>Sign inside the box</span></div>
+                  <canvas class="signature-canvas"></canvas>
+                  <div class="signature-actions">
+                    <button type="button" class="btn btn-sm btn-outline" data-action="undo">Undo</button>
+                    <button type="button" class="btn btn-sm btn-outline" data-action="clear">Clear</button>
+                  </div>
+                </div>
+              </div>
+              <div class="field span-2">
+                <label>New Debt Counsellor Signature</label>
+                <div class="signature-block" data-name="newCounsellorSignature">
+                  <div class="signature-title"><span>Counsellor signature</span></div>
+                  <canvas class="signature-canvas"></canvas>
+                  <div class="signature-actions">
+                    <button type="button" class="btn btn-sm btn-outline" data-action="undo">Undo</button>
+                    <button type="button" class="btn btn-sm btn-outline" data-action="clear">Clear</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="form-footer">
+          <div class="form-status">No draft saved yet.</div>
+          <div class="actions">
+            <button type="button" class="btn btn-outline" data-action="reset">Reset</button>
+            <button type="button" class="btn btn-ghost" data-action="save-draft">Save Draft</button>
+            <button type="submit" class="btn btn-primary">Submit Transfer</button>
+          </div>
+        </div>
+      </form>
+
+      <aside class="form-aside">
+        <h4>Sections</h4>
+        <ol>
+          <li>Consumer Details</li>
+          <li>Current Debt Counsellor</li>
+          <li>New Debt Counsellor</li>
+          <li>Confirmation of Transfer</li>
+          <li>Signatures</li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="modal-success">
+    <div class="modal">
+      <div class="modal-header"><h3>Transfer submitted</h3><button class="modal-close" data-close>×</button></div>
+      <div class="modal-body">
+        <p>Transfer request captured with reference <strong data-slot="reference">—</strong>.</p>
+        <p>The backend will notify the previous counsellor and process the handover.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close>Close</button>
+        <a class="btn btn-primary" href="/pages/dashboard.html">View Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { bootstrapForm } from "/js/forms.js";
+    bootstrapForm({ formType: { id: "counsellor_transfer", prefix: "CD-TR" } });
+  </script>
+</body>
+</html>

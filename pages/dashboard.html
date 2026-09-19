@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Clear Debt</title>
+  <meta name="description" content="Manage Clear Debt form submissions — contracts, transfers and powers of attorney." />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand"><span class="brand-mark">CD</span><span class="brand-text">Clear Debt</span></a>
+      <nav class="site-nav">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/client-contract.html">Contract</a>
+        <a href="/pages/transfer-form.html">Transfer</a>
+        <a href="/pages/power-of-attorney.html">POA</a>
+        <button id="signout-btn" class="btn btn-outline btn-sm" style="display:none;">Sign Out</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Auth gate: shown until an admin is signed in -->
+  <div id="auth-gate" class="container" style="max-width:380px; margin-top:80px;">
+    <div class="card">
+      <div class="card-header"><h2>Admin Sign In</h2><p>Sign in to access the submissions dashboard.</p></div>
+      <div class="card-body">
+        <form id="login-form">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="login-email" autocomplete="username" required />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="login-password" autocomplete="current-password" required />
+          </div>
+          <div class="error-msg" id="login-error" style="margin-bottom:12px;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <main class="container dashboard-page" id="dashboard-content" style="display:none;">
+    <div class="dashboard-header">
+      <div>
+        <h1>Submissions</h1>
+        <p>Review, filter and manage every form submitted to Clear Debt.</p>
+      </div>
+      <div class="header-actions">
+        <a href="/pages/client-contract.html" class="btn btn-outline">New Contract</a>
+        <a href="/pages/transfer-form.html" class="btn btn-outline">New Transfer</a>
+        <a href="/pages/power-of-attorney.html" class="btn btn-primary">New POA</a>
+      </div>
+    </div>
+
+    <!-- Stat cards -->
+    <section class="stat-grid">
+      <div class="stat-card">
+        <span class="stat-icon">Σ</span>
+        <span class="stat-label">Total Forms</span>
+        <div class="stat-value" data-stat="total">0</div>
+      </div>
+      <div class="stat-card stat-draft">
+        <span class="stat-icon">✎</span>
+        <span class="stat-label">Drafts</span>
+        <div class="stat-value" data-stat="draft">0</div>
+      </div>
+      <div class="stat-card stat-submitted">
+        <span class="stat-icon">↑</span>
+        <span class="stat-label">Submitted</span>
+        <div class="stat-value" data-stat="submitted">0</div>
+      </div>
+      <div class="stat-card stat-approved">
+        <span class="stat-icon">✓</span>
+        <span class="stat-label">Approved</span>
+        <div class="stat-value" data-stat="approved">0</div>
+      </div>
+      <div class="stat-card stat-rejected">
+        <span class="stat-icon">✕</span>
+        <span class="stat-label">Rejected</span>
+        <div class="stat-value" data-stat="rejected">0</div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters" aria-label="Filters">
+      <input type="text" id="filter-search" placeholder="Search by name, ID, phone, email or reference…" />
+      <select id="filter-status" aria-label="Filter by status">
+        <option value="">All statuses</option>
+      </select>
+      <select id="filter-type" aria-label="Filter by form type">
+        <option value="">All form types</option>
+        <option>Client Contract</option>
+        <option>Debt Counsellor Transfer</option>
+        <option>Power of Attorney</option>
+      </select>
+      <input type="date" id="filter-date" aria-label="Filter by date" />
+      <button id="filter-reset" class="btn btn-outline btn-sm" style="grid-column: 1 / -1; justify-self: end;">Reset filters</button>
+    </section>
+
+    <!-- Table -->
+    <section class="table-wrap">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Reference</th>
+              <th>Client</th>
+              <th>Form Type</th>
+              <th>Status</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="submissions-tbody"></tbody>
+        </table>
+      </div>
+      <div id="empty-state" class="empty-state" style="display:none;">
+        <h3>No submissions match your filters</h3>
+        <p>Try clearing filters or start a new submission from the buttons above.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div class="modal-backdrop" id="modal-view">
+    <div class="modal modal-lg">
+      <div class="modal-header"><h3>Submission details</h3><button class="modal-close" data-close>×</button></div>
+      <div class="modal-body" id="view-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modal-delete">
+    <div class="modal">
+      <div class="modal-header"><h3>Delete submission</h3><button class="modal-close" data-close>×</button></div>
+      <div class="modal-body">
+        <p>You're about to permanently delete <strong id="delete-target">—</strong>. This action can't be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close>Cancel</button>
+        <button id="delete-confirm" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modal-preview">
+    <div class="modal">
+      <div class="modal-header"><h3>PDF preview</h3><button class="modal-close" data-close>×</button></div>
+      <div class="modal-body">
+        <iframe id="pdf-preview-frame" style="width:100%; height:400px; border:1px solid var(--color-border-strong); border-radius:var(--radius-md);"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close>Close</button>
+        <a id="pdf-download-link" class="btn btn-primary" target="_blank" rel="noopener">Download</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initDashboard } from "/js/dashboard.js";
+    initDashboard();
+  </script>
+</body>
+</html>

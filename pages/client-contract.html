@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Contract — Clear Debt</title>
+  <meta name="description" content="Debt assistance agreement between Clear Debt (Pty) Ltd and the client." />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/forms.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand">
+        <span class="brand-mark">CD</span>
+        <span class="brand-text">Clear Debt</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/client-contract.html">Contract</a>
+        <a href="/pages/transfer-form.html">Transfer</a>
+        <a href="/pages/power-of-attorney.html">POA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container form-page">
+    <div class="form-header">
+      <div class="breadcrumb"><a href="/index.html">Home</a> / Client Contract</div>
+      <h1>Debt Assistance Agreement</h1>
+      <p>Complete every section below. Fields marked with an asterisk are required. Your data is only stored locally in this preview — the backend will persist submissions.</p>
+    </div>
+
+    <div class="form-layout">
+      <form id="form" novalidate>
+        <!-- Section: Company Details (read-only) -->
+        <section class="card">
+          <div class="card-header"><h2><span class="step-badge">1</span>Company Details</h2></div>
+          <div class="card-body">
+            <div class="field-grid">
+              <div class="field"><label>Company</label><input type="text" value="Clear Debt (Pty) Ltd" readonly /></div>
+              <div class="field"><label>Registration</label><input type="text" value="2025/687143/07" readonly /></div>
+              <div class="field span-2"><label>Address</label><input type="text" value="Office no 424 Richards Bay 3900" readonly /></div>
+              <div class="field"><label>Email</label><input type="text" value="info@clear-debt.co.za" readonly /></div>
+              <div class="field"><label>Phone</label><input type="text" value="0793932311" readonly /></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Client Details -->
+        <section class="card">
+          <div class="card-header">
+            <h2><span class="step-badge">2</span>Client Details</h2>
+            <p>Personal information of the client entering into this agreement.</p>
+          </div>
+          <div class="card-body">
+            <div class="field-grid">
+              <div class="field span-2">
+                <label>Full Name<span class="req">*</span></label>
+                <input type="text" name="fullName" data-rules="required" placeholder="e.g. Fazlyn Mack" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>ID Number<span class="req">*</span></label>
+                <input type="text" name="idNumber" inputmode="numeric" data-rules="required,saId" placeholder="13-digit SA ID" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>Phone<span class="req">*</span></label>
+                <input type="tel" name="phone" data-rules="required,tel" placeholder="+27 ..." />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field span-2">
+                <label>Residential Address<span class="req">*</span></label>
+                <input type="text" name="address" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field span-2">
+                <label>Email<span class="req">*</span></label>
+                <input type="email" name="email" data-rules="required,email" />
+                <div class="error-msg"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Services Provided -->
+        <section class="card">
+          <div class="card-header">
+            <h2><span class="step-badge">3</span>Services Provided</h2>
+            <p>Select each service to be included in this agreement.</p>
+          </div>
+          <div class="card-body">
+            <div class="check-list">
+              <label class="check">
+                <input type="checkbox" name="services" value="credit_report_checks" />
+                <div>
+                  <div class="check-title">Credit report checks</div>
+                  <div class="check-desc">We review your credit report to identify issues and opportunities, helping you improve your credit and make smarter financial decisions.</div>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="services" value="removal_prescribed_debt" />
+                <div>
+                  <div class="check-title">Removal of prescribed debt</div>
+                  <div class="check-desc">Helping remove old debts that are no longer legally enforceable, improving your credit report and giving you a fresh financial start.</div>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="services" value="removal_debt_review" />
+                <div>
+                  <div class="check-title">Removal from debt review</div>
+                  <div class="check-desc">The process of clearing your name from debt review once you qualify, so you can regain full financial freedom.</div>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="services" value="credit_bureau_updates" />
+                <div>
+                  <div class="check-title">Credit bureau updates</div>
+                  <div class="check-desc">Ensures your credit profile reflects correct and up-to-date information, removing outdated or incorrect listings.</div>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="services" value="restructuring_payments" />
+                <div>
+                  <div class="check-title">Restructuring of monthly payments</div>
+                  <div class="check-desc">We help reorganise your debts and monthly payments to make them more manageable.</div>
+                </div>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="services" value="financial_credit_advice" />
+                <div>
+                  <div class="check-title">Financial &amp; credit advice</div>
+                  <div class="check-desc">Expert guidance on managing money, budgeting, reducing debt and planning for the future.</div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Fees and Payment -->
+        <section class="card">
+          <div class="card-header">
+            <h2><span class="step-badge">4</span>Fees and Payment</h2>
+          </div>
+          <div class="card-body">
+            <div class="field-grid">
+              <div class="field">
+                <label>Service fee (R)<span class="req">*</span></label>
+                <input type="number" name="serviceFee" min="0" step="0.01" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field">
+                <label>Payment due<span class="req">*</span></label>
+                <input type="date" name="paymentDue" data-rules="required" />
+                <div class="error-msg"></div>
+              </div>
+              <div class="field span-2">
+                <label>Payment method<span class="req">*</span></label>
+                <div class="radio-group">
+                  <label class="radio"><input type="radio" name="paymentMethod" value="debit_order" data-rules="required" /> Debit Order</label>
+                  <label class="radio"><input type="radio" name="paymentMethod" value="eft" /> EFT</label>
+                  <label class="radio"><input type="radio" name="paymentMethod" value="other" /> Other</label>
+                </div>
+                <div class="error-msg"></div>
+              </div>
+              <div class="field span-2">
+                <label>Other payment details (if applicable)</label>
+                <input type="text" name="paymentMethodOther" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Duration, Obligations & Liability (informational) -->
+        <section class="card">
+          <div class="card-header"><h2><span class="step-badge">5</span>Duration, Obligations &amp; Liability</h2></div>
+          <div class="card-body">
+            <p><strong>Duration and Termination.</strong> This Agreement begins on the signature date and continues until completion of services, unless terminated by either party with 7 days’ written notice.</p>
+            <p><strong>Client Obligations.</strong> The Client must provide all required documents and truthful information and cooperate with Clear Debt to enable service delivery.</p>
+            <p><strong>Clear Debt Obligations.</strong> Clear Debt will provide the services agreed upon and protect all personal information under the POPI Act.</p>
+            <p><strong>Dispute Resolution.</strong> Both parties agree to attempt to resolve any disputes through negotiation before pursuing legal remedies.</p>
+            <p><strong>Liability.</strong> The Client acknowledges that Clear Debt shall not be held responsible for any fees, charges, or costs incurred as a result of a previous debt counsellor, financial institution or any other account. The Client remains fully liable for settling all such fees and obligations directly with the relevant parties.</p>
+            <label class="check" style="margin-top: 12px;">
+              <input type="checkbox" name="acceptTerms" data-rules="required" />
+              <div>
+                <div class="check-title">I have read and accept the above terms<span class="req">*</span></div>
+                <div class="check-desc">Required to submit this agreement.</div>
+              </div>
+            </label>
+            <div class="field"><div class="error-msg" style="margin-top:6px;"></div></div>
+          </div>
+        </section>
+
+        <!-- Section: Signatures -->
+        <section class="card">
+          <div class="card-header"><h2><span class="step-badge">6</span>Signatures</h2></div>
+          <div class="card-body">
+            <div class="field-grid cols-1">
+              <div class="field-grid">
+                <div class="field">
+                  <label>Signed at (Place)<span class="req">*</span></label>
+                  <input type="text" name="signedAt" data-rules="required" />
+                  <div class="error-msg"></div>
+                </div>
+                <div class="field">
+                  <label>Date<span class="req">*</span></label>
+                  <input type="date" name="signedDate" data-rules="required" />
+                  <div class="error-msg"></div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Client Signature<span class="req">*</span></label>
+                <div class="signature-block" data-name="clientSignature" data-required="true">
+                  <div class="signature-title">
+                    <span>Sign inside the box</span>
+                  </div>
+                  <canvas class="signature-canvas"></canvas>
+                  <div class="signature-actions">
+                    <button type="button" class="btn btn-sm btn-outline" data-action="undo">Undo</button>
+                    <button type="button" class="btn btn-sm btn-outline" data-action="clear">Clear</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-grid">
+                <div class="field">
+                  <label>For Clear Debt (Name)</label>
+                  <input type="text" name="clearDebtRep" />
+                </div>
+                <div class="field">
+                  <label>Clear Debt Signature</label>
+                  <div class="signature-block" data-name="clearDebtSignature">
+                    <div class="signature-title"><span>Representative signature</span></div>
+                    <canvas class="signature-canvas"></canvas>
+                    <div class="signature-actions">
+                      <button type="button" class="btn btn-sm btn-outline" data-action="undo">Undo</button>
+                      <button type="button" class="btn btn-sm btn-outline" data-action="clear">Clear</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="form-footer">
+          <div class="form-status">No draft saved yet.</div>
+          <div class="actions">
+            <button type="button" class="btn btn-outline" data-action="reset">Reset</button>
+            <button type="button" class="btn btn-ghost" data-action="save-draft">Save Draft</button>
+            <button type="submit" class="btn btn-primary">Submit Contract</button>
+          </div>
+        </div>
+      </form>
+
+      <aside class="form-aside">
+        <h4>Sections</h4>
+        <ol>
+          <li>Company Details</li>
+          <li>Client Details</li>
+          <li>Services Provided</li>
+          <li>Fees and Payment</li>
+          <li>Duration &amp; Obligations</li>
+          <li>Signatures</li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Modals -->
+  <div class="modal-backdrop" id="modal-success">
+    <div class="modal">
+      <div class="modal-header"><h3>Contract submitted</h3><button class="modal-close" data-close>×</button></div>
+      <div class="modal-body">
+        <p>Your submission has been captured with reference <strong data-slot="reference">—</strong>.</p>
+        <p>The backend will persist the record, generate the signed PDF and notify the reviewer.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close>Close</button>
+        <a class="btn btn-primary" href="/pages/dashboard.html">View Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { bootstrapForm } from "/js/forms.js";
+    bootstrapForm({ formType: { id: "client_contract", prefix: "CD-CT" } });
+  </script>
+</body>
+</html>
