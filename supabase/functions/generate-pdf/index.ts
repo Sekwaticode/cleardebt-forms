@@ -153,7 +153,7 @@ async function renderPdf(supabase: ReturnType<typeof createClient>, submission: 
 
   // ---- Header ----
   drawText("Clear Debt (Pty) Ltd", { size: 16, f: bold });
-  drawText("NCRDC4086", { size: 9, color: rgb(0.4, 0.45, 0.5), gap: 10 });
+  drawText("Registration 2025/687143/07", { size: 9, color: rgb(0.4, 0.45, 0.5), gap: 10 });
   drawText(FORM_TITLES[submission.form_type] || submission.form_type, { size: 14, f: bold, gap: 4 });
   drawText(`Reference: ${submission.reference}`, { size: 10, color: rgb(0.4, 0.45, 0.5) });
   drawText(`Status: ${submission.status}   ·   Generated: ${new Date().toLocaleString("en-ZA")}`, {
